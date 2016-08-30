@@ -15,7 +15,7 @@ static void (*OriginalDidRegisterForRemoteNotification)(id, SEL, UIApplication *
     if (!originalClass) {
         return;
     }
-    
+    /*
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         SEL originalSelector = @selector(application:didRegisterForRemoteNotificationsWithDeviceToken:);
@@ -48,6 +48,7 @@ static void (*OriginalDidRegisterForRemoteNotification)(id, SEL, UIApplication *
             class_addMethod(originalClass, originalSelector, replacement, "v@:@@");
         }
     });
+    */
 }
 
 @end
