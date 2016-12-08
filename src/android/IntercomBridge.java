@@ -17,6 +17,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.Build;
+import android.util.Log;
 
 import io.intercom.android.sdk.identity.Registration;
 import io.intercom.android.sdk.api.CordovaHeaderInterceptor;
@@ -36,8 +37,10 @@ public class IntercomBridge extends CordovaPlugin {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override public void run() {
                 setUpIntercom();
-                if (Injector.get() != null && Injector.get().getApi() != null) {
+                try {
                     Injector.get().getApi().ping();
+                } catch (RuntimeException e) {
+                    // Intercom is not initialised yet, do nothing
                 }
             }
         });
@@ -61,8 +64,8 @@ public class IntercomBridge extends CordovaPlugin {
     private void setUpIntercom() {
         try {
             Context context = IntercomBridge.this.cordova.getActivity().getApplicationContext();
-            
-            CordovaHeaderInterceptor.setCordovaVersion(context, "3.0.9");
+
+            CordovaHeaderInterceptor.setCordovaVersion(context, "3.0.20");
 
             switch (IntercomPushManager.getInstalledModuleType()) {
                 case GCM: {
@@ -83,7 +86,7 @@ public class IntercomBridge extends CordovaPlugin {
 
             Intercom.initialize(IntercomBridge.this.cordova.getActivity().getApplication(), apiKey, appId);
         } catch (Exception e) {
-            System.err.println("[Intercom-Cordova] ERROR: Something went wrong when initializing Intercom. Have you set your APP_ID and ANDROID_API_KEY?");
+            Log.e("Intercom-Cordova", "ERROR: Something went wrong when initializing Intercom. Have you set your APP_ID and ANDROID_API_KEY?");
         }
     }
 
@@ -156,6 +159,14 @@ public class IntercomBridge extends CordovaPlugin {
                 callbackContext.success();
             }
         },
+        displayMessageComposerWithInitialMessage {
+            @Override void performAction(JSONArray args, CallbackContext callbackContext, CordovaInterface cordova) {
+                String initialMessage = args.optString(0);
+
+                Intercom.client().displayMessageComposer(initialMessage);
+                callbackContext.success();
+            }
+        },
         displayConversationsList {
             @Override void performAction(JSONArray args, CallbackContext callbackContext, CordovaInterface cordova) {
                 Intercom.client().displayConversationsList();
@@ -181,6 +192,12 @@ public class IntercomBridge extends CordovaPlugin {
                     visibility = Intercom.GONE;
                 }
                 Intercom.client().setInAppMessageVisibility(visibility);
+                callbackContext.success();
+            }
+        },
+        hideMessenger {
+            @Override void performAction(JSONArray args, CallbackContext callbackContext, CordovaInterface cordova) {
+                Intercom.client().hideMessenger();
                 callbackContext.success();
             }
         },

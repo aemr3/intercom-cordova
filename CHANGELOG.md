@@ -1,5 +1,58 @@
 # Intercom for Cordova/PhoneGap
 
+## 3.0.20 (2016-12-06)
+
+* Now supports Intercom Educate. Learn more [here](https://www.intercom.com/customer-support-software/knowledge-base).
+* Updated Intercom for iOS to [3.0.21](https://github.com/intercom/intercom-android/releases/tag/3.0.21).
+* Updated Intercom for Android to [3.0.15](https://github.com/intercom/intercom-android/releases/tag/3.0.15).
+
+## 3.0.19 (2016-11-21)
+
+* Improved initialization process for Android.
+
+## 3.0.18 (2016-11-18)
+
+* Updated Intercom for iOS to [3.0.19](https://github.com/intercom/intercom-android/releases/tag/3.0.19).
+* Updated Intercom for Android to [3.0.13](https://github.com/intercom/intercom-android/releases/tag/3.0.13).
+
+## 3.0.17 (2016-11-10)
+
+* Updated Intercom for Android to [3.0.12](https://github.com/intercom/intercom-android/releases/tag/3.0.12).
+* Added NSPhotoLibraryUsageDescription to Info.plist for iOS
+
+## 3.0.16 (2016-11-07)
+
+* Updated Intercom for Android to [3.0.11](https://github.com/intercom/intercom-android/releases/tag/3.0.11).
+* Updated Intercom for iOS to [3.0.18](https://github.com/intercom/intercom-ios/releases/tag/3.0.18).
+
+## 3.0.15 (2016-10-19)
+
+* Updated Intercom for iOS to [3.0.17](https://github.com/intercom/intercom-ios/releases/tag/3.0.17).
+
+## 3.0.14 (2016-10-18)
+
+* Updated Intercom for iOS to [3.0.16](https://github.com/intercom/intercom-ios/releases/tag/3.0.16).
+
+## 3.0.13 (2016-10-12)
+
+* Re-publish to npm to work around registry issue.
+
+## 3.0.12 (2016-10-10)
+
+* Added a new method `displayMessageComposerWithInitialMessage` which opens up the message composer and takes in a string to pre-populate the message composer with. Example usage `intercom.displayMessageComposerWithInitialMessage("Question asked from the FAQ page: ");`
+* Updated Intercom for Android to [3.0.10](https://github.com/intercom/intercom-android/releases/tag/3.0.10).
+* Updated Intercom for iOS to [3.0.13](https://github.com/intercom/intercom-ios/releases/tag/3.0.13).
+
+## 3.0.11 (2016-09-16)
+
+* Updated Intercom for Android to [3.0.9](https://github.com/intercom/intercom-android/releases/tag/3.0.9).
+* Updated Intercom for iOS to [3.0.12](https://github.com/intercom/intercom-ios/releases/tag/3.0.12).
+
+## 3.0.10 (2016-09-09)
+
+* Updated Intercom for Android to [3.0.7](https://github.com/intercom/intercom-android/releases/tag/3.0.7).
+* Updated Intercom for iOS to [3.0.11](https://github.com/intercom/intercom-ios/releases/tag/3.0.11).
+
 ## 3.0.9 (2016-08-29)
 
 * Updated Intercom for Android to [3.0.4](https://github.com/intercom/intercom-android/releases/tag/3.0.4).
@@ -14,7 +67,7 @@
 * Fixed [#71](https://github.com/intercom/intercom-cordova/issues/71).
 * Updated Intercom for Android to [3.0.3](https://github.com/intercom/intercom-android/releases/tag/3.0.3).
 * Updated Intercom for iOS to [3.0.10](https://github.com/intercom/intercom-ios/releases/tag/3.0.10).
- 
+
 ## 3.0.6 (2016-08-10)
 
 * Fixed [#67](https://github.com/intercom/intercom-cordova/issues/66).

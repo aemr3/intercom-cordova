@@ -31,6 +31,10 @@ var intercom = {
         cordova.exec(success, error, 'Intercom', 'displayMessageComposer', []);
     },
 
+    displayMessageComposerWithInitialMessage: function(initialMessage, success, error) {
+        cordova.exec(success, error, 'Intercom', 'displayMessageComposerWithInitialMessage', [initialMessage]);
+    },
+
     displayConversationsList: function(success, error) {
         cordova.exec(success, error, 'Intercom', 'displayConversationsList', []);
     },
@@ -48,6 +52,10 @@ var intercom = {
 
     setInAppMessageVisibility: function(visibility, success, error) {
         cordova.exec(success, error, 'Intercom', 'setInAppMessageVisibility', [visibility]);
+    },
+
+    hideMessenger: function(success, error) {
+        cordova.exec(success, error, 'Intercom', 'hideMessenger', []);
     },
 
     registerForPush: function(success, error) {
